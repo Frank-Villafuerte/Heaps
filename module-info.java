@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author prosi
+ *
+ */
+module ColaPrioridad {
+}
