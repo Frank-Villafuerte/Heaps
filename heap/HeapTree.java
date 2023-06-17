@@ -19,26 +19,45 @@ public class HeapTree<E extends Comparable<E>> implements Heap<E> {
 			comparar(datos.size());
 		}
 	}
-	public void comparar(int indice) {
-		System.out.println(datos.get((indice/2)-1)+"-"+datos.get(indice-1)+" "+datos.get(indice-1).compareTo(datos.get((indice/2)-1)));//mostrar los elementos comparados
-		System.out.println(indice+"i");
-		if(indice>1&&datos.get(indice-1).compareTo(datos.get((indice/2)-1))==1) {
-			
-			E aux=datos.get((indice-1));
-			datos.set(indice-1, datos.get((indice/2)-1));
-			datos.set((indice/2)-1,aux);
-			
-			comparar(indice/2);
-		}
-	}
-
 	public void eliminar() throws ExceptionIsEmpty{
 		if(isEmpty()) {
 			throw new ExceptionIsEmpty("El arbol está vacio");
 		}
-		datos.remove(0);
+		else {
+			datos.set(0, datos.get(datos.size()-1));
+			datos.remove(datos.size()-1);
+			bajarDato(1);
+		}
 		
 	}
+	public void bajarDato(int indice) {	
+		if(indice*2<datos.size()) {
+			int mayorIndex=datos.get(indice*2-1).compareTo(datos.get(indice*2))==1? indice*2-1:indice*2;
+			System.out.println(mayorIndex+" mayor");
+			if(datos.get(indice-1).compareTo(datos.get(mayorIndex))==-1) {
+				
+				intercambiar(indice-1,mayorIndex);
+				bajarDato(mayorIndex+1);
+				
+			}
+		}
+		
+	}
+	public void comparar(int indice) {
+		//System.out.println(datos.get((indice/2)-1)+"-"+datos.get(indice-1)+" "+datos.get(indice-1).compareTo(datos.get((indice/2)-1)));//mostrar los elementos comparados
+		
+		if(indice>1&&datos.get(indice-1).compareTo(datos.get((indice/2)-1))==1) {
+			
+			intercambiar(indice-1,indice/2-1);
+			comparar(indice/2);
+		}
+	}
+	public void intercambiar(int indice1, int indice2) {
+		E aux=datos.get((indice1));
+		datos.set(indice1, datos.get(indice2));
+		datos.set((indice2),aux);
+	}
+	
 	public boolean isEmpty() {
 		return datos.size()==0;
 	}

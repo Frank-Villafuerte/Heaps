@@ -6,32 +6,32 @@ public class Test {
 	public static void main(String[] args) throws ExceptionIsEmpty {
 		
 		HeapTree arbol=new HeapTree();
-		arbol.insert(16);
+		arbol.insert(7);
 		p(arbol);
-		arbol.insert(14);
-		p(arbol);
-		arbol.insert(10);
+		arbol.insert(4);
 		p(arbol);
 		arbol.insert(8);
 		p(arbol);
-		arbol.insert(7);
+		arbol.insert(15);
+		p(arbol);
+		arbol.insert(16);
 		p(arbol);
 		arbol.insert(9);
 		p(arbol);
 		arbol.insert(3);
 		p(arbol);
-		arbol.insert(2);
+		arbol.insert(13);
 		p(arbol);
-		arbol.insert(4);
+		arbol.insert(12);
 		p(arbol);
-		arbol.insert(1);
-		p(arbol);
-		arbol.insert(15);
+		/*arbol.insert(1);
+		p(arbol);*/
+		/*arbol.insert(15);
 		p(arbol);
 		
-		
-		
-		
+		p(arbol);*/
+		arbol.eliminar();
+		p(arbol);
 	}
 	public static void p(HeapTree arbol) {
 		
