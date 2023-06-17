@@ -32,8 +32,7 @@ public class HeapTree<E extends Comparable<E>> implements Heap<E> {
 	}
 	public void bajarDato(int indice) {	
 		if(indice*2<datos.size()) {
-			int mayorIndex=datos.get(indice*2-1).compareTo(datos.get(indice*2))==1? indice*2-1:indice*2;
-			System.out.println(mayorIndex+" mayor");
+			int mayorIndex=datos.get(indice*2-1).compareTo(datos.get(indice*2))==1? indice*2-1:indice*2;//asignar indice del mayor
 			if(datos.get(indice-1).compareTo(datos.get(mayorIndex))==-1) {
 				
 				intercambiar(indice-1,mayorIndex);
@@ -64,4 +63,14 @@ public class HeapTree<E extends Comparable<E>> implements Heap<E> {
 	public ArrayList<E> getDatos() {
 		return datos;
 	}
+	
+	public String toString() {
+		String elementos="[";
+		for(int i=0;i<datos.size();i++) {
+			elementos+=datos.get(i)+", ";
+		}
+		elementos=elementos.substring(0,elementos.length()-2)+"]";
+		return elementos;
+	}
+	
 }
