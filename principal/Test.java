@@ -20,6 +20,8 @@ public class Test {
 		colaPrioridad.dequeue();
 		
 		System.out.println(colaPrioridad);
+		System.out.println("frente: "+colaPrioridad.front());
+		System.out.println("ultimo: "+colaPrioridad.back());
 		/*HeapTree<Integer> arbol=new HeapTree<Integer>();
 		arbol.insert(7);
 		p(arbol);
