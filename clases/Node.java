@@ -1,6 +1,6 @@
 package clases;
 
-public class Node <T>{
+public class Node <T> {
 	
 	private T dato;
 	private Node<T> izquierda;
@@ -35,7 +35,11 @@ public class Node <T>{
 	public void setDato(T dato) {
 		this.dato = dato;
 	}
-
+	@Override
+	public String toString() {
+		return " "+dato ;
+	}
+	
 	
 	
 
