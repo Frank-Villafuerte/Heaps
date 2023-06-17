@@ -1,30 +1,30 @@
 package heap;
 
 import java.util.ArrayList;
-import clases.Node;
+
 import myExceptions.ExceptionIsEmpty;
 public class HeapTree<E extends Comparable<E>> implements Heap<E> {
 
-	private ArrayList<Node<E>> datos=new ArrayList<Node<E>>();
+	private ArrayList<E> datos=new ArrayList<E>();
 	
 	
 	public HeapTree() {
-		datos=new ArrayList<Node<E>>();
+		datos=new ArrayList<E>();
 		
 	}
 	public void insert(E item) {
 		
-		datos.add(new Node<E>(item));
+		datos.add(item);
 		if(datos.size()>1) {
 			comparar(datos.size());
 		}
 	}
 	public void comparar(int indice) {
-		System.out.println(datos.get((indice/2)-1).getDato()+"-"+datos.get(indice-1).getDato()+" "+datos.get(indice-1).getDato().compareTo(datos.get((indice/2)-1).getDato()));//mostrar los elementos comparados
+		System.out.println(datos.get((indice/2)-1)+"-"+datos.get(indice-1)+" "+datos.get(indice-1).compareTo(datos.get((indice/2)-1)));//mostrar los elementos comparados
 		System.out.println(indice+"i");
-		if(indice>1&&datos.get(indice-1).getDato().compareTo(datos.get((indice/2)-1).getDato())==1) {
+		if(indice>1&&datos.get(indice-1).compareTo(datos.get((indice/2)-1))==1) {
 			
-			Node aux=datos.get((indice-1));
+			E aux=datos.get((indice-1));
 			datos.set(indice-1, datos.get((indice/2)-1));
 			datos.set((indice/2)-1,aux);
 			
@@ -42,7 +42,7 @@ public class HeapTree<E extends Comparable<E>> implements Heap<E> {
 	public boolean isEmpty() {
 		return datos.size()==0;
 	}
-	public ArrayList<Node<E>> getDatos() {
+	public ArrayList<E> getDatos() {
 		return datos;
 	}
 }
